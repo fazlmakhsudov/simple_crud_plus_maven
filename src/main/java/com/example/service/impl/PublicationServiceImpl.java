@@ -6,49 +6,28 @@ import com.example.service.PublicationService;
 import java.util.List;
 
 /**
- * implements GenericService
+ * implements PublicationService
  *
  * @param <T>
  */
-public class PublicationServiceImpl<T> implements PublicationService<T> {
-    private PublicationRepository<T> publicationRepository;
+public abstract class PublicationServiceImpl<T> extends GenericServiceImpl<T> implements PublicationService<T> {
+    protected PublicationRepository<T> publicationRepository;
 
-    public PublicationServiceImpl(PublicationRepository<T> publicationRepository) {
+    public PublicationServiceImpl(PublicationRepository<T> publicationRepository, String loggerClassName) {
+        super(publicationRepository, loggerClassName);
         this.publicationRepository = publicationRepository;
     }
 
-    @Override
-    public long add(T item) {
-        return publicationRepository.create(item);
-    }
-
-    @Override
-    public T find(long id) {
-        return publicationRepository.read(id);
-    }
-
-    @Override
-    public boolean save(T item) {
-        return publicationRepository.update(item);
-    }
-
-    @Override
-    public boolean remove(long id) {
-        return publicationRepository.delete(id);
-    }
-
-    @Override
-    public List<T> findAll() {
-        return publicationRepository.getAll();
-    }
 
     @Override
     public List<T> findAllByUserId(long user_id) {
+        logger.info(String.format("FindAllByUserId: long user_id = %d", user_id));
         return publicationRepository.getAllByUserId(user_id);
     }
 
     @Override
     public T findByTitle(String title) {
+        logger.info(String.format("FindByTitle: String title = %s", title));
         return publicationRepository.getByTitle(title);
     }
 }

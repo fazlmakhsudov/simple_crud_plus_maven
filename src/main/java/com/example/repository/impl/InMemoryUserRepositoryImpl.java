@@ -1,7 +1,7 @@
 package com.example.repository.impl;
 
 import com.example.entity.User;
-import com.example.repository.GenericRepository;
+import com.example.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Implementation of GenericRepository concerning internal memory
  */
-public class InMemoryUserRepositoryImpl implements GenericRepository<User> {
+public class InMemoryUserRepositoryImpl implements UserRepository<User> {
 
 
     private final Map<Long, User> memory;
@@ -55,5 +55,17 @@ public class InMemoryUserRepositoryImpl implements GenericRepository<User> {
     @Override
     public List<User> getAll() {
         return new ArrayList<>(memory.values());
+    }
+
+    @Override
+    public User getUserByNameAndSurname(String name, String surname) {
+        User user_ = null;
+        for (User user : memory.values()) {
+            if (user.getName().equals(name) && user.getSurName().equals(surname)) {
+                user_ = user;
+                break;
+            }
+        }
+        return user_;
     }
 }

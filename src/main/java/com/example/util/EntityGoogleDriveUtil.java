@@ -9,11 +9,12 @@ import java.util.Map;
 
 /**
  * DAO class
+ *
  * @param <T> extends Entity
  */
 public class EntityGoogleDriveUtil<T extends Entity> {
-//    private final List<List<Object>> mGoogleDriveData;
-    private final Map<Long, T> driveStorage;
+    //    private final List<List<Object>> mGoogleDriveData;
+    protected final Map<Long, T> driveStorage;
     private long index;
 
     {
@@ -52,5 +53,4 @@ public class EntityGoogleDriveUtil<T extends Entity> {
     public List<T> getAll() {
         return new ArrayList<>(driveStorage.values());
     }
-
 }

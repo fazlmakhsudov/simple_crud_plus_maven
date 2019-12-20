@@ -9,11 +9,12 @@ import java.util.Map;
 
 /**
  * DAO class
+ *
  * @param <T> extends Entity
  */
 public class EntityDBUtil<T extends Entity> {
 
-    private final Map<Long, T> mysqlStorage;
+    protected final Map<Long, T> mysqlStorage;
     private long index;
 
     {

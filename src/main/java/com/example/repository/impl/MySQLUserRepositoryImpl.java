@@ -1,20 +1,20 @@
 package com.example.repository.impl;
 
 import com.example.entity.User;
-import com.example.repository.GenericRepository;
-import com.example.util.EntityDBUtil;
+import com.example.repository.UserRepository;
+import com.example.util.UserDBUtil;
 
 import java.util.List;
 
 /**
  * Class implements GenericRepository for MySQL database
  */
-public class MySQLUserRepositoryImpl implements GenericRepository<User> {
+public class MySQLUserRepositoryImpl implements UserRepository<User> {
 
 
-    private final EntityDBUtil<User> dbUtil;
+    private final UserDBUtil dbUtil;
 
-    public MySQLUserRepositoryImpl(EntityDBUtil<User> dbUtil) {
+    public MySQLUserRepositoryImpl(UserDBUtil dbUtil) {
         this.dbUtil = dbUtil;
     }
 
@@ -41,5 +41,10 @@ public class MySQLUserRepositoryImpl implements GenericRepository<User> {
     @Override
     public List<User> getAll() {
         return dbUtil.getAll();
+    }
+
+    @Override
+    public User getUserByNameAndSurname(String name, String surname) {
+        return dbUtil.getUserByNameAndSurname(name, surname);
     }
 }

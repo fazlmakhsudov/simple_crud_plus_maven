@@ -1,6 +1,7 @@
 package com.example.repository.impl;
 
 import com.example.entity.Article;
+import com.example.repository.ArticleRepository;
 import com.example.repository.PublicationRepository;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Implementation of PublicationRepository concerning internal memory
  */
-public class InMemoryArticleRepositoryImpl implements PublicationRepository<Article> {
+public class InMemoryArticleRepositoryImpl implements ArticleRepository {
 
 
     private final Map<Long, Article> memory;

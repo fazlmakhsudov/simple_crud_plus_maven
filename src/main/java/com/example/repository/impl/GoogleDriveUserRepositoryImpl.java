@@ -1,20 +1,20 @@
 package com.example.repository.impl;
 
 import com.example.entity.User;
-import com.example.repository.GenericRepository;
-import com.example.util.EntityGoogleDriveUtil;
+import com.example.repository.UserRepository;
+import com.example.util.UserGoogleDriveUtil;
 
 import java.util.List;
 
 /**
  * Class implements GenericRepository for Google drive
  */
-public class GoogleDriveUserRepositoryImpl implements GenericRepository<User> {
+public class GoogleDriveUserRepositoryImpl implements UserRepository<User> {
 
 
-    private final EntityGoogleDriveUtil<User> googleDriveUtil;
+    private final UserGoogleDriveUtil googleDriveUtil;
 
-    public GoogleDriveUserRepositoryImpl(EntityGoogleDriveUtil<User> googleDriveUtil) {
+    public GoogleDriveUserRepositoryImpl(UserGoogleDriveUtil googleDriveUtil) {
         this.googleDriveUtil = googleDriveUtil;
     }
 
@@ -41,5 +41,10 @@ public class GoogleDriveUserRepositoryImpl implements GenericRepository<User> {
     @Override
     public List<User> getAll() {
         return googleDriveUtil.getAll();
+    }
+
+    @Override
+    public User getUserByNameAndSurname(String name, String surname) {
+        return googleDriveUtil.getUserByNameAndSurname(name, surname);
     }
 }
