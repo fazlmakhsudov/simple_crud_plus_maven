@@ -2,7 +2,6 @@ package com.example.repository.impl;
 
 import com.example.entity.Article;
 import com.example.repository.ArticleRepository;
-import com.example.repository.PublicationRepository;
 
 import java.util.ArrayList;
 import java.util.List;
