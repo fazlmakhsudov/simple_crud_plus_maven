@@ -19,27 +19,34 @@ public class User extends Entity {
         this.mAge = mAge;
     }
 
-    public String getmName() {
+    public User(int id, String mName, String mSurName, int mAge) {
+        super(id);
+        this.mName = mName;
+        this.mSurName = mSurName;
+        this.mAge = mAge;
+    }
+
+    public String getName() {
         return mName;
     }
 
-    public void setmName(String mName) {
+    public void setName(String mName) {
         this.mName = mName;
     }
 
-    public String getmSurName() {
+    public String getSurName() {
         return mSurName;
     }
 
-    public void setmSurName(String mSurName) {
+    public void setSurName(String mSurName) {
         this.mSurName = mSurName;
     }
 
-    public int getmAge() {
+    public int getAge() {
         return mAge;
     }
 
-    public void setmAge(int mAge) {
+    public void setAge(int mAge) {
         this.mAge = mAge;
     }
 
