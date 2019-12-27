@@ -13,6 +13,13 @@ public abstract class Entity {
         this.mId = id;
     }
 
+    /**
+     * forms description of entity
+     *
+     * @return description for menu
+     */
+    public abstract String showEntity();
+
     public long getId() {
         return mId;
     }

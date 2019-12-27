@@ -77,7 +77,25 @@ public class User extends Entity {
                 '}';
     }
 
+    @Override
+    public String showEntity() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n--------------------------------------------------------------------");
+        stringBuilder.append("\nUser id: " + this.getId());
+        stringBuilder.append("\nUser name: " + this.getName());
+        stringBuilder.append("\nUser surname: " + this.getSurName());
+        stringBuilder.append("\nUser age: " + this.getAge());
+        stringBuilder.append("\n--------------------------------------------------------------------");
+        return stringBuilder.toString();
+    }
+
     public static User valueOf(String name, String surName, int age) {
         return new User(name, surName, age);
+    }
+
+    public static void main(String[] args) {
+        String className = (new User()).getClass() + "";
+        className = className.replaceAll(".+[.]", "");
+        System.out.println(className);
     }
 }

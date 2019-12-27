@@ -4,11 +4,11 @@ import java.util.List;
 
 /**
  * CRUD generic interface
+ *
  * @param <T>
  */
-public interface GenericRepository <T> {
+public interface GenericRepository<T> {
     /**
-     *
      * Creates T in respective repository.
      *
      * @param item T to create
@@ -30,7 +30,6 @@ public interface GenericRepository <T> {
      * Deletes T by id.
      *
      * @param id T id
-     *
      * @return true if the T was deleted, false otherwise
      */
     boolean delete(long id);

@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Service generic pattern, wraps repository pattern, provides user-oriented method names
+ *
  * @param <T>
  */
 public interface GenericService<T> {

@@ -89,6 +89,18 @@ public class Article extends Entity {
         return false;
     }
 
+    @Override
+    public String showEntity() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n--------------------------------------------------------------------");
+        stringBuilder.append("\nArticle id: " + this.getId());
+        stringBuilder.append("\nArticle title: " + this.getTitle());
+        stringBuilder.append("\nArticle text: " + this.getText());
+        stringBuilder.append("\nUser id: " + this.getUser_id());
+        stringBuilder.append("\n--------------------------------------------------------------------");
+        return stringBuilder.toString();
+    }
+
     public static Article valueOf(String title, String text, int user_id) {
         return new Article(title, text, user_id);
     }
